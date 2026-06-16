@@ -24,6 +24,12 @@ pip install -r requirements.txt
 export OPENAI_API_KEY="sk-..."
 ```
 
+Or create a `.env` file in the project root:
+
+```text
+OPENAI_API_KEY=sk-...
+```
+
 ## Usage
 
 ### Interactive menu (recommended)

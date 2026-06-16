@@ -11,12 +11,11 @@ You can also skip the menu and launch an agent directly:
     python main.py --agent idea
     python main.py --agent planner
 """
-
 from __future__ import annotations
 
 import argparse
-import sys
 
+from dotenv import load_dotenv
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
@@ -25,6 +24,7 @@ from rich.table import Table
 from agents import DayPlannerAgent, EcosystemAgent, IdeaAgent
 from agents.base_agent import BaseAgent
 
+load_dotenv()
 console = Console()
 
 AGENTS: dict[str, BaseAgent] = {
