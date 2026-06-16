@@ -9,6 +9,7 @@ Collection of AI-powered tools for product management workflows.
 | **Ecosystem & Competition** | Gather, prioritise, and summarise your product's ecosystem and competitive landscape |
 | **Idea** | Flesh out, structure, and stress-test ideas for new projects or features |
 | **Day Planner** | Prioritise tasks, protect focus time, and build a realistic daily plan |
+| **Ticket Refiner** | Turn rough notes into a cleaner ticket draft with scope, acceptance criteria, risks, and open questions |
 
 ## Setup
 
@@ -47,6 +48,7 @@ Type `/reset` to clear the conversation, `/quit` to exit.
 python main.py --agent ecosystem   # competitive intelligence
 python main.py --agent idea        # ideation & feature scoping
 python main.py --agent planner     # daily prioritisation
+python main.py --agent ticket      # ticket drafting & refinement
 ```
 
 ### Use a different model
@@ -66,5 +68,6 @@ pm-tools/
     ├── base_agent.py           # shared base class
     ├── ecosystem_agent.py      # ecosystem & competition research
     ├── idea_agent.py           # ideation & feature scoping
-    └── day_planner_agent.py    # daily prioritisation & planning
+    ├── day_planner_agent.py    # daily prioritisation & planning
+    └── ticket_refiner_agent.py # ticket drafting & refinement
 ```

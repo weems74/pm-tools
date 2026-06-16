@@ -10,10 +10,12 @@ You can also skip the menu and launch an agent directly:
     python main.py --agent ecosystem
     python main.py --agent idea
     python main.py --agent planner
+    python main.py --agent ticket
 """
 from __future__ import annotations
 
 import argparse
+import sys
 
 from dotenv import load_dotenv
 from rich.console import Console
@@ -21,7 +23,7 @@ from rich.panel import Panel
 from rich.prompt import Prompt
 from rich.table import Table
 
-from agents import DayPlannerAgent, EcosystemAgent, IdeaAgent
+from agents import DayPlannerAgent, EcosystemAgent, IdeaAgent, TicketRefinerAgent
 from agents.base_agent import BaseAgent
 
 load_dotenv()
@@ -31,6 +33,7 @@ AGENTS: dict[str, BaseAgent] = {
     "ecosystem": EcosystemAgent(),
     "idea": IdeaAgent(),
     "planner": DayPlannerAgent(),
+    "ticket": TicketRefinerAgent(),
 }
 
 
