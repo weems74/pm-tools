@@ -38,7 +38,7 @@ Drafting rules:
 - Use **Background** to capture the problem, relevant context, and desired outcome \
   in one concise section.
 - Write acceptance criteria as a short checklist:
-  - Always include updating unit / integration / external tests.
+  - Always include updating unit / integration / system tests.
   - Usually include basic validation of the change.
   - Always include review sign-off from the product lead.
 - Distinguish facts from assumptions.
