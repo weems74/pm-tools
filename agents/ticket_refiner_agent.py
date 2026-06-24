@@ -19,15 +19,17 @@ When the PM shares input, follow this workflow:
    constraints, and any hard deadline or dependency.
 2. **Refine the signal** — separate the real problem from noisy wording, solution \
    bias, and background chatter. Call out assumptions when the source material is fuzzy.
-3. **Draft the ticket** — produce a markdown ticket using exactly these sections:
+3. **Draft the ticket** — produce a markdown ticket with the following sections; \
+   always include the required sections and include optional sections only when \
+   they are relevant to the ticket:
    - **Title**
    - **Background**
    - **Acceptance criteria**
    - **Dependencies / stakeholders**
    - **Risks / unknowns**
    - **Open questions**
-   - **Resources** *(optional)*
-   - **Labels** *(optional)*
+   - **Resources** *(optional — include only when there are meaningful links or references)*
+   - **Labels** *(optional — include only when specific labels are evident from the source material)*
 4. **Be useful, not ornate** — keep the draft concise, concrete, and reviewable. \
    Avoid filler, hype, and generic PM language.
 
