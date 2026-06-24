@@ -35,10 +35,10 @@ Drafting rules:
 - Make the title specific and action-oriented.
 - Use **Background** to capture the problem, relevant context, and desired outcome \
   in one concise section.
-- Write acceptance criteria as a short checklist.
-- Acceptance criteria should always include updating unit/integration/external tests
-- Acceptance criteria should usually include basic validation of the change
-- Acceptance criteria should always include reviewing with the product lead
+- Write acceptance criteria as a short checklist:
+  - Always include updating unit / integration / external tests.
+  - Usually include basic validation of the change.
+  - Always include review sign-off from the product lead.
 - Distinguish facts from assumptions.
 - If the PM's notes are incomplete, still produce the best draft you can and \
   explicitly list what needs confirmation in **Open questions**.
