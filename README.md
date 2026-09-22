@@ -1,73 +1,81 @@
 # pm-tools
 
-Collection of AI-powered tools for product management workflows.
+Agent skills for product management work: turning messy notes into reviewable tickets, and shaping raw ideas into stress-tested concepts.
 
-## Agents
+Each skill is a folder with a `SKILL.md` file that follows the open [Agent Skills](https://agentskills.io) format, so the same files work in GitHub Copilot (CLI, VS Code agent mode), Claude Code, and other compatible agents.
 
-| Agent | Purpose |
-|---|---|
-| **Ecosystem & Competition** | Gather, prioritise, and summarise your product's ecosystem and competitive landscape |
-| **Idea** | Flesh out, structure, and stress-test ideas for new projects or features |
-| **Day Planner** | Prioritise tasks, protect focus time, and build a realistic daily plan |
-| **Ticket Refiner** | Turn rough notes into a cleaner ticket draft with scope, acceptance criteria, risks, and open questions |
+## Skills
 
-## Setup
+| Skill | What it does | Use it when |
+|---|---|---|
+| [`ticket-refiner`](skills/ticket-refiner/SKILL.md) | Turns rough notes, meeting bullets, or Slack fragments into a markdown ticket with background, acceptance criteria, dependencies, risks, and open questions | You have messy input and need something engineering can refine |
+| [`idea-shaper`](skills/idea-shaper/SKILL.md) | Takes a raw idea through clarify → expand → structure → challenge, and saves a one-page concept | You have a half-formed idea and want to know if it holds up |
 
-### 1. Install dependencies
+Both skills separate facts from assumptions, surface gaps as open questions instead of inventing answers, and avoid filler.
 
-```bash
-pip install -r requirements.txt
-```
+## Install
 
-### 2. Set your OpenAI API key
+Clone the repo, then link the skills into your personal skills folder so they're available in every project. Edits in this repo take effect immediately.
 
 ```bash
-export OPENAI_API_KEY="sk-..."
+git clone https://github.com/weems74/pm-tools.git
+mkdir -p ~/.copilot/skills
+
+ln -s "$PWD/pm-tools/skills/ticket-refiner" ~/.copilot/skills/ticket-refiner
+ln -s "$PWD/pm-tools/skills/idea-shaper"    ~/.copilot/skills/idea-shaper
 ```
 
-Or create a `.env` file in the project root:
+For Claude Code, link the same folders into `~/.claude/skills/` as well.
 
-```text
-OPENAI_API_KEY=sk-...
-```
+To use a skill in a single repository only, copy its folder into that repo's `.github/skills/` (or `.claude/skills/`) directory instead.
+
+In Copilot CLI, run `/skills reload` after installing or editing a skill.
 
 ## Usage
 
-### Interactive menu (recommended)
+No commands needed. The agent picks the skill based on what you ask:
 
-```bash
-python main.py
+- Paste meeting notes and say *"turn this into a ticket"* → `ticket-refiner`
+- Say *"I have an idea for…"* or *"poke holes in this"* → `idea-shaper`
+
+## Working with your own context
+
+Both skills look for context in the repository you're working in and use it when present:
+
+```
+your-repo/
+├── context/
+│   ├── ticket-conventions.md   # labels, definition of done, sign-off rules
+│   └── product.md              # one-pager, users, strategy
+├── tickets/                    # existing tickets, used to match your style
+└── ideas/                      # concepts saved by idea-shaper
 ```
 
-You'll see a numbered menu — pick an agent and start chatting.  
-Type `/reset` to clear the conversation, `/quit` to exit.
+Repo conventions override the skills' defaults, so the output fits your team rather than a generic template.
 
-### Launch an agent directly
-
-```bash
-python main.py --agent ecosystem   # competitive intelligence
-python main.py --agent idea        # ideation & feature scoping
-python main.py --agent planner     # daily prioritisation
-python main.py --agent ticket      # ticket drafting & refinement
-```
-
-### Use a different model
-
-```bash
-python main.py --model gpt-4o-mini   # faster / cheaper
-```
-
-## Project structure
+## Repository structure
 
 ```
 pm-tools/
-├── main.py                     # CLI entry point
-├── requirements.txt
-└── agents/
-    ├── __init__.py
-    ├── base_agent.py           # shared base class
-    ├── ecosystem_agent.py      # ecosystem & competition research
-    ├── idea_agent.py           # ideation & feature scoping
-    ├── day_planner_agent.py    # daily prioritisation & planning
-    └── ticket_refiner_agent.py # ticket drafting & refinement
+└── skills/
+    ├── ticket-refiner/
+    │   ├── SKILL.md
+    │   └── assets/ticket-template.md
+    └── idea-shaper/
+        ├── SKILL.md
+        └── assets/concept-template.md
 ```
+
+## Evals
+
+Each skill will include an `evals/` folder with realistic, sanitized input cases and written pass criteria, so changes to a skill can be checked against the same inputs over time. In progress.
+
+## Background
+
+This repo started as a Python CLI: four agents, each a system prompt wrapped in a chat loop calling the OpenAI API. After working with skill files directly in Copilot, it became clear the prompts were the real asset and the code was plumbing. A skill running inside an agent can read the repo it's working in, uses whichever model the host provides, and needs no API key or separate app.
+
+The Python version is preserved in the commit history.
+
+## License
+
+<!-- Choose a license, e.g. MIT or Apache-2.0, and add a LICENSE file. -->
