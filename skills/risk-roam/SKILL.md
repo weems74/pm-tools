@@ -95,8 +95,8 @@ End with a concise review record containing:
 - Key assumptions:
 
 ### ROAM board
-| Risk | Category | Trigger / failure scenario | Impact | Likelihood | Evidence / confidence | ROAM status | Owner or mitigation | Follow-up / due point |
-|---|---|---|---|---|---|---|---|---|
+| Risk | Category | Trigger / failure scenario | Impact | Likelihood | Evidence / confidence | ROAM status | Owner or mitigation | Disposition details (decision-maker / rationale / residual risk / verification / escalation) | Follow-up / due point |
+|---|---|---|---|---|---|---|---|---|---|
 
 ### Decision summary
 - Go / pause / change direction:
