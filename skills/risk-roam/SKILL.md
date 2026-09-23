@@ -20,9 +20,10 @@ Do not treat an unexamined risk as Accepted. Acceptance requires an explicit rat
 
 At the beginning:
 
-1. Restate the idea and the decision or next step the review should support.
-2. Ask for missing context one or two questions at a time: intended users, lifecycle stage, geography, data, dependencies, and constraints.
-3. Explain that the review will be adaptive. Start with the risk areas most likely to change the decision, then expand based on what is discovered.
+1. Look for relevant context in the current repo (for example, `context/` files and referenced product, architecture, or prior-risk documents) and use it when present.
+2. Restate the idea and the decision or next step the review should support.
+3. Ask for missing context one or two questions at a time: intended users, lifecycle stage, geography, data, dependencies, and constraints.
+4. Explain that the review will be adaptive. Start with the risk areas most likely to change the decision, then expand based on what is discovered.
 
 During the session:
 
