@@ -10,8 +10,9 @@ Each skill is a folder with a `SKILL.md` file that follows the open [Agent Skill
 |---|---|---|
 | [`ticket-refiner`](skills/ticket-refiner/SKILL.md) | Turns rough notes, meeting bullets, or Slack fragments into a markdown ticket with background, acceptance criteria, dependencies, risks, and open questions | You have messy input and need something engineering can refine |
 | [`idea-shaper`](skills/idea-shaper/SKILL.md) | Takes a raw idea through clarify → expand → structure → challenge, and saves a one-page concept | You have a half-formed idea and want to know if it holds up |
+| [`risk-roam`](skills/risk-roam/SKILL.md) | Runs a structured Q&A risk review using the ROAM framework and captures decision-relevant risks with clear dispositions | You want to pressure-test an idea, product, feature, workflow, or system for risks before moving forward |
 
-Both skills separate facts from assumptions, surface gaps as open questions instead of inventing answers, and avoid filler.
+These skills separate facts from assumptions, surface gaps as open questions instead of inventing answers, and avoid filler.
 
 ## Install
 
@@ -23,6 +24,7 @@ mkdir -p ~/.copilot/skills
 
 ln -s "$PWD/pm-tools/skills/ticket-refiner" ~/.copilot/skills/ticket-refiner
 ln -s "$PWD/pm-tools/skills/idea-shaper"    ~/.copilot/skills/idea-shaper
+ln -s "$PWD/pm-tools/skills/risk-roam"      ~/.copilot/skills/risk-roam
 ```
 
 For Claude Code, link the same folders into `~/.claude/skills/` as well.
@@ -40,7 +42,7 @@ No commands needed. The agent picks the skill based on what you ask:
 
 ## Working with your own context
 
-Both skills look for context in the repository you're working in and use it when present:
+These skills look for context in the repository you're working in and use it when present:
 
 ```
 your-repo/
@@ -61,9 +63,11 @@ pm-tools/
     ├── ticket-refiner/
     │   ├── SKILL.md
     │   └── assets/ticket-template.md
-    └── idea-shaper/
-        ├── SKILL.md
-        └── assets/concept-template.md
+    ├── idea-shaper/
+    │   ├── SKILL.md
+    │   └── assets/concept-template.md
+    └── risk-roam/
+        └── SKILL.md
 ```
 
 ## Evals
